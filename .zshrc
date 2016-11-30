@@ -86,3 +86,5 @@ export EDITOR='vim'
 
 source ~/.bin/tmuxinator.zsh
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -19,7 +19,6 @@ Plugin 'Syntastic'
 Plugin 'matchit.zip'
 Plugin 'tComment'
 Plugin 'tristen/vim-sparkup'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -29,6 +28,8 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'altercation/vim-colors-solarized'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,9 +40,10 @@ set t_Co=256
 filetype plugin indent on
 syntax on
 cabbr te tabedit
-colorscheme xoria256
-" colorscheme solarized
-"set background=dark
+syntax enable
+set background=dark
+colorscheme solarized
+" colorscheme xoria256
 set expandtab
 set nocompatible
 set tabstop=2
@@ -51,8 +53,6 @@ set number
 set wrap
 set backspace=0
 set t_Co=256
-" set colorcolumn=+1 " red line and over is error
-" set textwidth=80
 set hlsearch
 
 " set NERDTREE
