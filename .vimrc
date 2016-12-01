@@ -8,21 +8,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'ervandew/supertab'
-Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'xoria256.vim'
 Plugin 'ctrlp.vim'
 Plugin 'ZoomWin'
 Plugin 'Syntastic'
-Plugin 'matchit.zip'
 Plugin 'tComment'
-Plugin 'tristen/vim-sparkup'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'toyamarinyon/vim-swift'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdtree'
@@ -30,6 +22,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mhinz/vim-startify'
+Plugin 'ervandew/supertab'
+Plugin 'craigemery/vim-autotag'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,18 +32,15 @@ filetype plugin indent on    " required
 
 " vim options
 set t_Co=256
-filetype plugin indent on
 syntax on
 cabbr te tabedit
-syntax enable
 set background=dark
 colorscheme solarized
-" colorscheme xoria256
 set expandtab
 set nocompatible
 set tabstop=2
 set shiftwidth=2
-set showtabline=2
+set showtabline=4
 set number
 set wrap
 set backspace=0
