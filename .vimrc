@@ -28,7 +28,6 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/gundo.vim'
-
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,19 +37,28 @@ filetype plugin indent on    " required
 " -------------
 let mapleader=" "
 set t_Co=256
-filetype plugin indent on
 syntax on
 cabbr te tabedit
+<<<<<<< HEAD
+=======
+set background=dark
+colorscheme solarized
+>>>>>>> 951b56ba1c19ad53407b30c44ac08e16bcb4117b
 set expandtab
 set nocompatible
 set tabstop=2
 set shiftwidth=2
+<<<<<<< HEAD
 set showtabline=2
 set cursorline
+=======
+set showtabline=4
+>>>>>>> 951b56ba1c19ad53407b30c44ac08e16bcb4117b
 set number
 set wrap
 set backspace=0
 set t_Co=256
+<<<<<<< HEAD
 set autoread " make vim reload if files changed
 set omnifunc=syntaxcomplete#Complete
 " }}}
@@ -70,6 +78,8 @@ nnoremap "," za
 set wildmenu
 set showmatch
 set incsearch
+=======
+>>>>>>> 951b56ba1c19ad53407b30c44ac08e16bcb4117b
 set hlsearch
 set autochdir
 set tags=./tags;
