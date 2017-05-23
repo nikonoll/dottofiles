@@ -16,11 +16,12 @@ export EDITOR='vim'
 source ~/.bin/tmuxinator.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOPATH/bin
 
 # ----ALIASES------
 alias l='ls -lFh'     #size,show type,human readable
 alias grep='grep --color'
-alias greprn='grep -rn '
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 alias t='tail -f'
 alias fd='find . -type d -name'
@@ -39,3 +40,7 @@ alias gs='git status'
 alias gd='git diff'
 alias ga.='git add .'
 alias gcm='git commit -m '
+
+alias wttr='curl wttr.in/Munich'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
