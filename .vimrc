@@ -19,10 +19,11 @@ Plugin 'tComment'
 Plugin 'mattn/emmet-vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'hdima/python-syntax'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,12 +43,14 @@ set tabstop=2
 set shiftwidth=2
 set showtabline=2
 set cursorline
-set number
+" set number
+set relativenumber
 set wrap
 set backspace=0
 set t_Co=256
 set autoread " make vim reload if files changed
 set omnifunc=syntaxcomplete#Complete
+call togglebg#map("<F5>")
 " }}}
 
 " folding options {{{
@@ -92,8 +95,11 @@ nnoremap <leader>s :mksession<CR>
 " theme / looks {{{
 " -------------
 set background=light
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+colorscheme solarized
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
 
 " }}}
 
@@ -124,7 +130,7 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=zend -n --report=csv"
-set spell spelllang=en_us
+" set spell spelllang=en_us
 map <Leader>l :SyntasticCheck<CR>
 
 " ctrl p buffer navigation
