@@ -43,14 +43,17 @@ set tabstop=2
 set shiftwidth=2
 set showtabline=2
 set cursorline
-" set number
 set relativenumber
 set wrap
 set backspace=0
 set t_Co=256
 set autoread " make vim reload if files changed
 set omnifunc=syntaxcomplete#Complete
-call togglebg#map("<F5>")
+call togglebg#map("<F7>") " toggle background color
+" buffer shortcuts
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <Leader>j :bnext<CR>
+nnoremap <Leader>k :bprevious<CR>
 " }}}
 
 " folding options {{{
