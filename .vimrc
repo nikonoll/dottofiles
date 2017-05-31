@@ -1,7 +1,7 @@
-" Vundle Plugins {{{
+" Vundle Pugins {{{
 
 
-set nocompatible              " be iMproved, required
+set nocomptible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
@@ -54,6 +54,15 @@ call togglebg#map("<F7>") " toggle background color
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
+nnoremap <Leader>l :SyntasticReset<CR>
+" Make handling Vim windows easier
+map <leader>w- <C-W>- " smaller
+map <leader>w+ <C-W>+ " larger
+map <leader>w[ <C-W>= " equal
+map <leader>w] <C-W>_ " fill screen
+" " Make splitting Vim windows easier
+map <leader>s <C-W>s
+map <leader>v <C-W>v
 " }}}
 
 " folding options {{{
@@ -92,12 +101,12 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 "  sessions {{{
 " -------------
-nnoremap <leader>s :mksession<CR>
+nnoremap <leader>S :mksession<CR>
 " }}}
 
 " theme / looks {{{
 " -------------
-set background=light
+set background=dark
 colorscheme solarized
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
