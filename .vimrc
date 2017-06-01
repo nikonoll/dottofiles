@@ -1,7 +1,7 @@
 " Vundle Pugins {{{
 
 
-set nocomptible              " be iMproved, required
+set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
@@ -63,6 +63,8 @@ map <leader>w] <C-W>_ " fill screen
 " " Make splitting Vim windows easier
 map <leader>s <C-W>s
 map <leader>v <C-W>v
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
 " }}}
 
 " folding options {{{
@@ -84,6 +86,7 @@ set hlsearch
 set autochdir
 set tags=./tags;
 nnoremap gV `[v`]
+nnoremap <leader>. :CtrlPTag<cr>
 
 " The Silver Searcher
 if executable('ag')
@@ -93,10 +96,18 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-endif 
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" TODO: check how to open found line and file directly
+" Allows to fuzzy search the ctags file with :Tags, amazingly fast
+command! -bar Tags if !empty(tagfiles()) | call fzf#run({
+      \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
+      \   'sink':   'tag',
+      \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 " }}}
 
 "  sessions {{{
