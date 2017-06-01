@@ -44,27 +44,36 @@ set shiftwidth=2
 set showtabline=2
 set cursorline
 set relativenumber
+set numberwidth=5
 set wrap
 set backspace=0
 set t_Co=256
 set autoread " make vim reload if files changed
 set omnifunc=syntaxcomplete#Complete
 call togglebg#map("<F7>") " toggle background color
+
 " buffer shortcuts
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 nnoremap <Leader>l :SyntasticReset<CR>
-" Make handling Vim windows easier
-map <leader>w- <C-W>- " smaller
-map <leader>w+ <C-W>+ " larger
-map <leader>w[ <C-W>= " equal
-map <leader>w] <C-W>_ " fill screen
-" " Make splitting Vim windows easier
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" Make splitting Vim windows easier
 map <leader>s <C-W>s
 map <leader>v <C-W>v
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 " }}}
 
 " folding options {{{
