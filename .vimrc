@@ -56,6 +56,7 @@ call togglebg#map("<F7>") " toggle background color
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
+nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>l :SyntasticReset<CR>
 
 " Switch between the last two files
