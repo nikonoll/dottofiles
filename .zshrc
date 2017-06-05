@@ -20,6 +20,7 @@ export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
 # ----ALIASES------
+alias v='vim'
 alias l='ls -lFh'     #size,show type,human readable
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
