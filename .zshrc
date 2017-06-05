@@ -1,4 +1,5 @@
 export ZSH=/Users/nnoll/.oh-my-zsh
+export ZSH=/home/monkey/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 
