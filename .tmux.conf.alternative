@@ -1,0 +1,29 @@
+set -g default-terminal "screen-256color"
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+bind r source-file ~/.tmux.conf
+#split panes
+bind s split-window -h
+bind v split-window -v
+
+#pane-switch quickly
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+#copy mode rebinding
+unbind [
+bind Escape copy-mode
+unbind p
+bind p paste-buffer
+
+# stop automatic reanaming of windows
+set-option -g allow-rename off
+#set window and pane index to 1 (0 by default)
+set-option -g base-index 1
+setw -g pane-base-index 1
+
+#faster key repetition
+set -s escape-time 0
