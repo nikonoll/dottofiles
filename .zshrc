@@ -1,7 +1,7 @@
-export ZSH=/Users/nnoll/.oh-my-zsh
+# export ZSH=/Users/nnoll/.oh-my-zsh
 export ZSH=/home/monkey/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
@@ -40,9 +40,13 @@ alias q='exit'
 
 alias gs='git status'
 alias gd='git diff'
-alias ga.='git add .'
-alias gcm='git commit -m '
 
 alias wttr='curl wttr.in/Munich'
 
+# ------- fzf ---------- #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# alias searchpw="lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g'"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"

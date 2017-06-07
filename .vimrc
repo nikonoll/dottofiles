@@ -1,12 +1,11 @@
 " Vundle Pugins {{{
-
-
 set nocompatible              " be iMproved, required
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
 call vundle#begin()
-" " let Vundle manage Vundle, required
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -14,7 +13,7 @@ Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ctrlp.vim'
-Plugin 'Syntastic'
+Plugin 'w0rp/ale'
 Plugin 'tComment'
 Plugin 'mattn/emmet-vim'
 Plugin 'Townk/vim-autoclose'
