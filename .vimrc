@@ -16,13 +16,15 @@ Plugin 'ctrlp.vim'
 Plugin 'w0rp/ale'
 Plugin 'tComment'
 Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/loremipsum'
 Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nvie/vim-flake8'
-Plugin 'hdima/python-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'junegunn/goyo.vim'
+Plugin 'tpope/vim-markdown'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,7 +51,7 @@ set backspace=0
 set t_Co=256
 set autoread " make vim reload if files changed
 set omnifunc=syntaxcomplete#Complete
-call togglebg#map("<F7>") " toggle background color
+call togglebg#map("<F9>") " toggle background color
 
 " buffer shortcuts
 nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -66,10 +68,6 @@ map <leader>s <C-W>s
 map <leader>v <C-W>v
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
-
-" Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -148,30 +146,25 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 "settings for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=zend -n --report=csv"
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+" let g:syntastic_haml_checkers = ['haml_lint']
+" let g:syntastic_scss_checkers = ['scss_lint']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_php_checkers = ['php', 'phpcs']
+" let g:syntastic_php_phpcs_args = "--standard=zend -n --report=csv"
 " set spell spelllang=en_us
-map <Leader>l :SyntasticCheck<CR>
 
 " ctrl p buffer navigation
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlP<CR>
-
-" turn off vim-markdown folding
-let g:vim_markdown_folding_disabled=1
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " }}}
 
 
