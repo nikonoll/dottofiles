@@ -124,7 +124,7 @@ nnoremap <leader>S :mksession<CR>
 
 " theme / looks {{{
 " -------------
-set background=dark
+set background=light
 colorscheme solarized
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
