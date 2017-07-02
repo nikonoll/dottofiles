@@ -112,8 +112,7 @@ command! -bar Tags if !empty(tagfiles()) | call fzf#run({
       \   'sink':   'tag',
       \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 
-" theme / looks {{{
-" -------------
+" theme / looks
 set background=light
 colorscheme solarized
 let g:airline#extensions#tabline#enabled = 1
@@ -134,7 +133,6 @@ map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlP<CR>
 
 " reading mode / note taking / markdown
-"
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " helppage -> :h vimwiki-syntax
