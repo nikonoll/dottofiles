@@ -112,7 +112,8 @@ command! -bar Tags if !empty(tagfiles()) | call fzf#run({
       \   'sink':   'tag',
       \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 
-" theme / looks
+" theme / looks {{{
+" -------------
 set background=light
 colorscheme solarized
 let g:airline#extensions#tabline#enabled = 1
