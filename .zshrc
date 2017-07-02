@@ -19,6 +19,7 @@ export EDITOR='vim'
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
+export GOBIN=$GOPATH/bin
 
 # ----ALIASES------
 alias v='vim'
@@ -48,6 +49,8 @@ alias tmuxls='tmux list-session'
 alias muxls="ag -l yml ~/.tmuxinator/ | sed 's=.*/==' | cut -f 1 -d '.'"
 alias mux='tmuxinator'
 
+# open notes
+alias notes='vim ~/Documents/nikosnotes/index.md'
 alias wttr='curl wttr.in/Munich'
 
 # ------- fzf ---------- #

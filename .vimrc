@@ -25,14 +25,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-markdown'
+Plugin 'vimwiki/vimwiki'
+Plugin 'suan/vim-instant-markdown'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" }}}
 
-" general vim options {{{
-" -------------
+" general vim options
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 set t_Co=256
@@ -58,7 +58,6 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 nnoremap <Leader>q :bd<CR>
-nnoremap <Leader>l :SyntasticReset<CR>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -74,18 +73,15 @@ set splitbelow
 set splitright
 " }}}
 
-" folding options {{{
-" -------------
+" folding options
 set foldenable
 set foldlevelstart=10 "open most folds by default
 set foldnestmax=10
 set foldmethod=indent
 " comma opens and closes folds
 nnoremap "," za
-" }}}
 
-" search / tags {{{
-" -------------
+" search / tags
 set wildmenu
 set showmatch
 set incsearch
@@ -115,56 +111,33 @@ command! -bar Tags if !empty(tagfiles()) | call fzf#run({
       \   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
       \   'sink':   'tag',
       \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
-" }}}
 
-"  sessions {{{
-" -------------
-nnoremap <leader>S :mksession<CR>
-" }}}
-
-" theme / looks {{{
-" -------------
-set background=dark
+" theme / looks
+set background=light
 colorscheme solarized
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 
-" }}}
-
-" language specific highlighting {{{
-" -------------
+" language specific highlighting
 let python_highlight_all = 1
 
-" }}}
-
-" plugin settings {{{
-" set NERDTREE
+" nerdtree settings
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-"settings for syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_loc_list_height = 5
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-" let g:syntastic_haml_checkers = ['haml_lint']
-" let g:syntastic_scss_checkers = ['scss_lint']
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_php_checkers = ['php', 'phpcs']
-" let g:syntastic_php_phpcs_args = "--standard=zend -n --report=csv"
-" set spell spelllang=en_us
-
 " ctrl p buffer navigation
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlP<CR>
-" }}}
 
+" reading mode / note taking / markdown
+"
+" vimwiki with markdown support
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" helppage -> :h vimwiki-syntax
 
+" vim-instant-markdown - Instant Markdown previews from Vim
+let g:instant_markdown_autostart = 0
+map <leader>md :InstantMarkdownPreview<CR>
