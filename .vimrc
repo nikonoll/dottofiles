@@ -25,6 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-fugitive'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +46,7 @@ set shiftwidth=2
 set showtabline=2
 set cursorline
 set relativenumber
+set number
 set numberwidth=5
 set wrap
 set backspace=0
