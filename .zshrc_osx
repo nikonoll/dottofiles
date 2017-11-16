@@ -1,7 +1,7 @@
 export ZSH=/Users/nnoll/.oh-my-zsh
 # export ZSH=/home/monkey/.oh-my-zsh
 
-ZSH_THEME="af-magic"
+ZSH_THEME="emojiparty"
 
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
@@ -58,3 +58,4 @@ alias wttr='curl wttr.in/Munich'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
