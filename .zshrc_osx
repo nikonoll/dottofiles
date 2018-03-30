@@ -1,7 +1,7 @@
 export ZSH=/Users/nnoll/.oh-my-zsh
 # export ZSH=/home/monkey/.oh-my-zsh
 
-ZSH_THEME="af-magic"
+ZSH_THEME="lambda"
 
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
@@ -16,9 +16,10 @@ DEFAULT_USER=`whoami`
 export EDITOR='vim'
 source ~/.bin/tmuxinator.zsh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
+export REST_BASE_URL="http://notorious-niko-noll.env.xing.com/rest"
 
 # ----ALIASES------
 alias preview='ssh app-deploy@events-1.worker.preview.ams1.xing.com'
@@ -44,6 +45,9 @@ alias q='exit'
 alias gs='git status'
 alias gd='git diff'
 
+# ctags
+alias tagthis='ctags -R -f ./.git/tags .'
+
 # tmux(inator)
 alias tmuxls='tmux list-session'
 alias muxls="ag -l yml ~/.tmuxinator/ | sed 's=.*/==' | cut -f 1 -d '.'"
@@ -54,7 +58,19 @@ alias wttr='curl wttr.in/Munich'
 # ------- fzf ---------- #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+fgb() {
+  git fetch
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
 # alias searchpw="lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g'"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

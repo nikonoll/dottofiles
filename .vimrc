@@ -1,4 +1,3 @@
-" Vundle Pugins {{{
 set nocompatible              " be iMproved, required
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 filetype off                  " required
@@ -11,23 +10,20 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'ctrlp.vim'
 Plugin 'w0rp/ale'
 Plugin 'tComment'
 Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/loremipsum'
 Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'dracula/vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vimwiki/vimwiki'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'leafgarland/typescript-vim'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,12 +49,11 @@ set backspace=0
 set t_Co=256
 set autoread " make vim reload if files changed
 set omnifunc=syntaxcomplete#Complete
-call togglebg#map("<F9>") " toggle background color
 
 " buffer shortcuts
 nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <Leader>j :bnext<CR>
-nnoremap <Leader>k :bprevious<CR>
+nnoremap <Leader>l :bnext<CR>
+nnoremap <Leader>h :bprevious<CR>
 nnoremap <Leader>q :bd<CR>
 
 " Switch between the last two files
@@ -115,15 +110,23 @@ command! -bar Tags if !empty(tagfiles()) | call fzf#run({
       \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 
 " theme / looks
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme dracula
+highlight ALEWarning ctermbg=DarkMagenta
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
+let g:airline_theme='dracula'
 
 " language specific highlighting
 let python_highlight_all = 1
+
+" ale settings
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_text_changed = 'never'
 
 " nerdtree settings
 map <C-n> :NERDTreeToggle<CR>
@@ -133,12 +136,3 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " ctrl p buffer navigation
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlP<CR>
-
-" reading mode / note taking / markdown
-" vimwiki with markdown support
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-" helppage -> :h vimwiki-syntax
-
-" vim-instant-markdown - Instant Markdown previews from Vim
-let g:instant_markdown_autostart = 0
-map <leader>md :InstantMarkdownPreview<CR>
