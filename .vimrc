@@ -13,8 +13,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'ctrlp.vim'
 Plugin 'w0rp/ale'
 Plugin 'tComment'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
 Plugin 'mattn/emmet-vim'
-Plugin 'Townk/vim-autoclose'
+" Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
@@ -24,6 +26,13 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'jparise/vim-graphql'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'airblade/vim-gitgutter'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,9 +93,10 @@ set showmatch
 set incsearch
 set hlsearch
 set autochdir
-set tags=./tags;
+set tags=./.git/tags;
 nnoremap gV `[v`]
 nnoremap <leader>. :CtrlPTag<cr>
+set signcolumn=yes
 
 " The Silver Searcher
 if executable('ag')
@@ -110,23 +120,24 @@ command! -bar Tags if !empty(tagfiles()) | call fzf#run({
       \ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
 
 " theme / looks
-set background=dark
-colorscheme dracula
-highlight ALEWarning ctermbg=DarkMagenta
+set background=light
+colorscheme PaperColor
+" highlight ALEWarning ctermbg=Magenta
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+" let g:airline_theme='dracula'
+let g:airline_theme='papercolor'
 
 " language specific highlighting
 let python_highlight_all = 1
 
 " ale settings
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
 
 " nerdtree settings
 map <C-n> :NERDTreeToggle<CR>
@@ -136,3 +147,23 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " ctrl p buffer navigation
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlP<CR>
+
+" experimental
+" hi vertsplit ctermfg=238 ctermbg=235
+" hi LineNr ctermfg=237
+" hi StatusLine ctermfg=235 ctermbg=245
+" hi StatusLineNC ctermfg=235 ctermbg=237
+" hi Search ctermbg=58 ctermfg=15
+" hi Default ctermfg=1
+" hi clear SignColumn
+" hi SignColumn ctermbg=237
+" hi GitGutterAdd ctermbg=235 ctermfg=245
+" hi GitGutterChange ctermbg=235 ctermfg=245
+" hi GitGutterDelete ctermbg=235 ctermfg=245
+" hi GitGutterChangeDelete ctermbg=235 ctermfg=245
+" hi EndOfBuffer ctermfg=237 ctermbg=235
+
+set statusline=%=&P\ %f\ %m
+set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set laststatus=2
+set noshowmode
