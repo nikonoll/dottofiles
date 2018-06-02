@@ -1,7 +1,7 @@
 # export ZSH=/Users/nnoll/.oh-my-zsh
 export ZSH=/home/monkey/.oh-my-zsh
 
-ZSH_THEME="af-magic"
+ZSH_THEME="lambda"
 
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
@@ -41,22 +41,27 @@ alias c='clear'
 alias r='reset'
 alias q='exit'
 
-alias gs='git status'
-alias gd='git diff'
+# ctags
+alias tag='ctags -R -f .'
 
 # tmux(inator)
 alias tmuxls='tmux list-session'
 alias muxls="ag -l yml ~/.tmuxinator/ | sed 's=.*/==' | cut -f 1 -d '.'"
 alias mux='tmuxinator'
 
-# open notes
-alias notes='vim ~/Documents/nikosnotes/index.md'
 alias wttr='curl wttr.in/Munich'
 
 # ------- fzf ---------- #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# alias searchpw="lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g'"
+fgb() {
+  git fetch
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"

@@ -19,10 +19,8 @@ source ~/.bin/tmuxinator.zsh
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
-export REST_BASE_URL="http://notorious-niko-noll.env.xing.com/rest"
 
 # ----ALIASES------
-alias preview='ssh app-deploy@events-1.worker.preview.ams1.xing.com'
 alias v='vim'
 alias conf='vim ~/.vimrc ~/.zshrc ~/.tmux.conf'
 alias vimsource='source ~/.vimrc'
@@ -42,11 +40,8 @@ alias c='clear'
 alias r='reset'
 alias q='exit'
 
-alias gs='git status'
-alias gd='git diff'
-
 # ctags
-alias tagthis='ctags -R -f ./.git/tags .'
+alias tag='ctags -R -f .'
 
 # tmux(inator)
 alias tmuxls='tmux list-session'
@@ -66,7 +61,6 @@ fgb() {
   git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
-# alias searchpw="lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g'"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
@@ -75,4 +69,8 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+# ------- XING ---------- #
+alias preview='ssh app-deploy@events-1.worker.preview.ams1.xing.com'
 export SANDBOX=stapa-niko-noll.env.xing.com
+export REST_BASE_URL="http://notorious-niko-noll.env.xing.com/rest"
