@@ -1,5 +1,4 @@
 set nocompatible              " be iMproved, required
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
@@ -16,23 +15,17 @@ Plugin 'tComment'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'mattn/emmet-vim'
-" Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'dracula/vim'
-Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jparise/vim-graphql'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'airblade/vim-gitgutter'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,7 +39,6 @@ syntax on
 cabbr te tabedit
 set expandtab
 set nocompatible
-set tabstop=2
 set shiftwidth=2
 set showtabline=2
 set cursorline
@@ -78,14 +70,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set splitbelow
 set splitright
 " }}}
-
-" folding options
-set foldenable
-set foldlevelstart=10 "open most folds by default
-set foldnestmax=10
-set foldmethod=indent
-" comma opens and closes folds
-nnoremap "," za
 
 " search / tags
 set wildmenu
